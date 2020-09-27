@@ -15,10 +15,10 @@ namespace Maze_Algorithm
         {
             gridRows = rows;
             gridColumns = columns;
-            Cells = new Cell[gridRows, gridColumns];
-            for (int x = 0; x < gridRows; x++)
+            Cells = new Cell[gridColumns, gridRows];
+            for (int y = 0; y < gridRows; y++) 
             {
-                for (int y = 0; y < gridColumns; y++)
+                for (int x = 0; x < gridColumns; x++)
                 {
                     Cells[x, y] = new Cell(x, y);
                 }

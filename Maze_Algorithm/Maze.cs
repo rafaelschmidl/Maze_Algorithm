@@ -114,11 +114,11 @@ namespace Maze_Algorithm
 
         private bool IsOutOfBounds(int x, int y)
         {
-            if (x < 0 || x > gridRows - 1)
+            if (x < 0 || x > gridColumns - 1)
             {
                 return true;
             }
-            if (y < 0 || y > gridColumns - 1)
+            if (y < 0 || y > gridRows - 1)
             {
                 return true;
             }
