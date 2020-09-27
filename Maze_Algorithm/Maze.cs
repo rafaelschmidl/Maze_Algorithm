@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using static System.Console;
 
@@ -24,26 +23,11 @@ namespace Maze_Algorithm
 
         public void MakeMaze()
         {
-
             grid.PrintGridToConsole();
 
-
-            // initial cell [0, 0] = visited - push to stack
-
-            // while stack is not empty
-            //  Pop a cell from the stack and make it a current cell
-            //  If the current cell has any neighbours which have not been visited
-            //      Push the current cell to the stack
-            //      Choose one of the unvisited neighbours
-            //      Remove the wall between the current cell and the chosen cell
-            //      Mark the chosen cell as visited and push it to the stack
-
-
-            // Init
             grid.Cells[0, 0].IsVisited = true;
             cellsWithUnvisitedNeighbour.Push(grid.Cells[0, 0]);
 
-            // Algorithm
             while (cellsWithUnvisitedNeighbour.Count > 0)
             {
                 currentCell = cellsWithUnvisitedNeighbour.Pop();
@@ -55,10 +39,10 @@ namespace Maze_Algorithm
                     cellsWithUnvisitedNeighbour.Push(currentCell);
                     Cell chosenNeighbour = ChooseRandomUnvisitedNeighbour(currentCell);
                     RemoveWallBetweenNeighbours(currentCell, chosenNeighbour);
+                    Thread.Sleep(30);
                     chosenNeighbour.IsVisited = true;
                     cellsWithUnvisitedNeighbour.Push(chosenNeighbour);
                 }
-
             }
         }
 
@@ -130,7 +114,6 @@ namespace Maze_Algorithm
         {
             int directionX = neighbour.X - cell.X;
             int directionY = neighbour.Y - cell.Y;
-
             
             if (directionY == -1)
             {
@@ -171,10 +154,8 @@ namespace Maze_Algorithm
                     Write(" ");
                     break;
             }
-            Thread.Sleep(500);
+
             SetCursorPosition(0, grid.GetGridHeight());
         }
-
-
     }
 }

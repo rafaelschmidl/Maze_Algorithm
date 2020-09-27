@@ -1,6 +1,4 @@
-﻿using System;
-using static System.Console;
-using System.Collections.Generic;
+﻿using static System.Console;
 
 namespace Maze_Algorithm
 {
@@ -8,42 +6,18 @@ namespace Maze_Algorithm
     {
         static void Main(string[] args)
         {
+            Util.MaximizeConsoleWindow();
+            BufferHeight = WindowHeight;
 
-            int rows = 8;
-            int columns = 12;
+            int rows = WindowHeight / 2 - 1;
+            int columns = WindowWidth / 4 - 1;
 
             Maze maze = new Maze(rows, columns);
             maze.MakeMaze();
 
-
-            /*
-            int x = 3;
-            int y = 4;
-
-            // find wall
-            // north (y * 2 + 1) - 1
-            // east  (x * 4 + 2) + 2
-            // south (y * 2 + 1) + 1
-            // west  (x * 4 + 2) - 2
-
-            // remove west wall
-            SetCursorPosition((x * 4 + 2) - 2, y * 2 + 1);
-            Write(" ");
- 
-            // find cell
-            // x * 4 + 2
-            // y * 2 + 1
-            SetCursorPosition(x * 4 + 2, y * 2 + 1);
-            Write("X");
-            
-            // set cursor to end of grid
-            SetCursorPosition(0, maze.grid.GetGridHeight());
-            */
-
-            Write("\n\n\n");
-            WriteLine("Press any key to exit..");
+            WriteLine("The maze is complete :)");
+            Write("Press any key to exit..");
             ReadKey();
-
         }
     }
 }
